@@ -31,18 +31,8 @@ const watch_face_t watch_faces[] = {
     clock_face,
     fast_stopwatch_face,
     countdown_face,
-#ifdef I2C_SERCOM
     step_counter_face,
-#endif
-#if !BUILD_TO_SHARE
-    cyclic_countdown_face,
-    voltage_face,
-#endif
-    advanced_alarm_face,
-    sunrise_sunset_face,
-    tally_face,
     probability_face,
-    moon_phase_face,
 // Start of Secondary Faces
     settings_face,
     set_time_face,
@@ -54,21 +44,9 @@ const watch_face_t watch_faces[] = {
 #endif
 // Start of Teriary Faces
     blackjack_face,
-#if !BUILD_TO_SHARE
-    pet_face,
-#endif
     endless_runner_face,
     ping_face,
-    wordle_face,
-    higher_lower_game_face,
     lander_face,
-    simon_face,
-#if BUILD_TO_SHARE
-    tarot_face,
-#else
-    party_face,
-    festival_schedule_face,
-#endif
 };
 
 #define MOVEMENT_NUM_FACES (sizeof(watch_faces) / sizeof(watch_face_t))
@@ -80,11 +58,7 @@ const watch_face_t watch_faces[] = {
  * If you don't want any faces to be excluded, set this to 0 and a long Mode press will have no effect.
  */
 
-#if BUILD_TO_SHARE
-#define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 8)
-#else
-#define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 9)
-#endif
+#define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 4)
 
 #ifdef HAS_IR_SENSOR
 #define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 6) // or (0)
@@ -117,7 +91,7 @@ const watch_face_t watch_faces[] = {
  * 1: 24Hr
  * 2: Toggle with Alarm Btn
  */
-#define MOVEMENT_DEFAULT_24H_MODE 0
+#define MOVEMENT_DEFAULT_24H_MODE 1
 
 /* Enable or disable the sound on mode button press */
 #define MOVEMENT_DEFAULT_BUTTON_SOUND false
@@ -150,7 +124,7 @@ const watch_face_t watch_faces[] = {
  * 6: 1 day
  * 7: 7 days
  */
-#define MOVEMENT_DEFAULT_LOW_ENERGY_INTERVAL 2
+#define MOVEMENT_DEFAULT_LOW_ENERGY_INTERVAL 0
 
 /*
  * If true and we're in LE mode and it's the top of the hour
@@ -181,7 +155,7 @@ const watch_face_t watch_faces[] = {
  * MOVEMENT_SC_NOT_INSTALLED: The LIS2DW isn't installed (the code handles this without it needing to be manally set)
  */
 #if BUILD_TO_SHARE
-#define MOVEMENT_DEFAULT_COUNT_STEPS MOVEMENT_SC_OFF
+#define MOVEMENT_DEFAULT_COUNT_STEPS MOVEMENT_SC_ALWAYS
 #else
 #define MOVEMENT_DEFAULT_COUNT_STEPS MOVEMENT_SC_DAYTIME
 #endif
