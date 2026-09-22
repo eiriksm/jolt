@@ -31,9 +31,12 @@ const watch_face_t watch_faces[] = {
     clock_face,
     fast_stopwatch_face,
     countdown_face,
+#ifdef I2C_SERCOM
     step_counter_face,
+#endif
     probability_face,
 // Start of Secondary Faces
+    fesk_demo_face,
     settings_face,
     set_time_face,
     voltage_face,
@@ -61,9 +64,9 @@ const watch_face_t watch_faces[] = {
 #define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 4)
 
 #ifdef HAS_IR_SENSOR
-#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 6) // or (0)
+#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 7) // or (0)
 #else
-#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 4) // or (0)
+#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 5) // or (0)
 #endif
 
 /* Custom hourly chime tune. Check movement_custom_signal_tunes.h for options. */

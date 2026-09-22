@@ -43,6 +43,7 @@ SRCS += \
   ./watch-faces/complication/wordle_face.c \
   ./watch-faces/io/ir_rx_face.c \
   ./watch-faces/io/ir_tx_face.c \
+  ./watch-faces/io/fesk_demo_face.c \
   ./watch-faces/complication/probability_face.c \
   ./watch-faces/clock/close_enough_face.c \
   ./watch-faces/complication/tarot_face.c \

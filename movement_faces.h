@@ -49,6 +49,7 @@
 #include "ir_tx_face.h"
 #include "firmware_flasher_face.h"
 #include "chirpy_demo_face.h"
+#include "fesk_demo_face.h"
 #include "finetune_face.h"
 #include "nanosec_face.h"
 #include "mars_time_face.h"
