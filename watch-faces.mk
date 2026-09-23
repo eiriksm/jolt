@@ -4,6 +4,8 @@ ifeq ($(SHARE),false)
 endif
 
 SRCS += \
+  ./watch-faces/complication/unit_counter_face.c \
+  ./watch-faces/complication/bac.c \
   ./watch-faces/clock/clock_face.c \
   ./watch-faces/clock/beats_face.c \
   ./watch-faces/clock/world_clock_face.c \
