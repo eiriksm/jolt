@@ -29,8 +29,10 @@
 
 const watch_face_t watch_faces[] = {
     clock_face,
+    unit_counter_face,
     fast_stopwatch_face,
-    countdown_face,
+    light_sensor_face,
+    lux_rx_demo_face,
 #ifdef I2C_SERCOM
     step_counter_face,
 #endif
@@ -42,7 +44,6 @@ const watch_face_t watch_faces[] = {
     voltage_face,
     temperature_logging_face,
 #ifdef HAS_IR_SENSOR
-    light_sensor_face,
     firmware_flasher_face,
 #endif
 // Start of Teriary Faces
@@ -64,7 +65,7 @@ const watch_face_t watch_faces[] = {
 #define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 4)
 
 #ifdef HAS_IR_SENSOR
-#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 7) // or (0)
+#define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 6) // or (0)
 #else
 #define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 5) // or (0)
 #endif
