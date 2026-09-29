@@ -31,8 +31,10 @@ const watch_face_t watch_faces[] = {
     clock_face,
     unit_counter_face,
     fast_stopwatch_face,
+#ifdef HAS_IR_SENSOR
     light_sensor_face,
     lux_rx_demo_face,
+#endif
 #ifdef I2C_SERCOM
     step_counter_face,
 #endif
