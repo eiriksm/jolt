@@ -33,6 +33,12 @@
  * Controls:
  * - ALARM button: Start transmission when idle, cancel when transmitting.
  *
+ * - LIGHT long press: Cycle mode (what gets transmitted):
+ *     TEST - a built-in test message.
+ *     FILE - the contents of the file "test" on the filesystem (like
+ *            `cat test`). Create it with e.g. `echo hello > test`.
+ *            Shows NOFILE if it does not exist.
+ *
  * - ALARM long press: Play debug melody. This can be used to see if your
  *   receiver is getting similar frequencies as we are expecting it to be.
  *
