@@ -79,6 +79,7 @@ void light_sensor_face_setup(uint8_t watch_face_index, void ** context_ptr) {
 }
 
 static uint16_t take_light_reading(void) {
+#ifdef HAS_IR_SENSOR
     HAL_GPIO_IR_ENABLE_out();
     HAL_GPIO_IR_ENABLE_clr();
     HAL_GPIO_IRSENSE_pmuxen(HAL_GPIO_PMUX_ADC);
@@ -90,6 +91,9 @@ static uint16_t take_light_reading(void) {
     HAL_GPIO_IRSENSE_off();
     HAL_GPIO_IR_ENABLE_off();
     return val;
+#else
+    return 0;
+#endif
 }
 
 void light_sensor_face_activate(void *context) {
@@ -129,9 +133,11 @@ bool light_sensor_face_loop(movement_event_t event, void *context) {
 
 void light_sensor_face_resign(void *context) {
     (void) context;
+#ifdef HAS_IR_SENSOR
     adc_disable();
     HAL_GPIO_IRSENSE_pmuxdis();
     HAL_GPIO_IRSENSE_off();
     HAL_GPIO_IR_ENABLE_off();
+#endif
 }
 
