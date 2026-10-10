@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac9e4daa7a0c6c15996c143d00dbadb2",
+    "content-hash": "e265e778062a8376bf638f6c8d59d300",
     "packages": [
         {
             "name": "eiriksm/bac.c",
