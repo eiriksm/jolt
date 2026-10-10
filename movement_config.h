@@ -51,9 +51,6 @@ const watch_face_t watch_faces[] = {
 // Start of Teriary Faces
     blackjack_face,
     endless_runner_face,
-#if !BUILD_TO_SHARE
-    pet_face,
-#endif
     ping_face,
     lander_face,
 };
@@ -67,11 +64,7 @@ const watch_face_t watch_faces[] = {
  * If you don't want any faces to be excluded, set this to 0 and a long Mode press will have no effect.
  */
 
-#if BUILD_TO_SHARE
 #define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 4)
-#else
-#define MOVEMENT_TERIARY_FACE_INDEX (MOVEMENT_NUM_FACES - 5)
-#endif
 
 #ifdef HAS_IR_SENSOR
 #define MOVEMENT_SECONDARY_FACE_INDEX (MOVEMENT_TERIARY_FACE_INDEX - 6) // or (0)
