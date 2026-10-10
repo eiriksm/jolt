@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f310157b3d38ab50824f34da8cdc22f",
+    "content-hash": "8bad6efe4cb3fc8c9c52c8d9ed290914",
     "packages": [
         {
             "name": "eiriksm/bac.c",
@@ -31,13 +31,100 @@
                 "issues": "https://github.com/eiriksm/bac.c/issues"
             },
             "time": "2026-10-07T19:14:29+00:00"
+        },
+        {
+            "name": "eiriksm/lux-demo-face",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/lux-demo-face.git",
+                "reference": "d114fc92dc446c3cf4ebdc88c2887e8883174698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/lux-demo-face/zipball/d114fc92dc446c3cf4ebdc88c2887e8883174698",
+                "reference": "d114fc92dc446c3cf4ebdc88c2887e8883174698",
+                "shasum": ""
+            },
+            "require": {
+                "eiriksm/lux-rx": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "Second Movement watch face that receives text over light with lux_rx",
+            "support": {
+                "source": "https://github.com/eiriksm/lux-demo-face/tree/main",
+                "issues": "https://github.com/eiriksm/lux-demo-face/issues"
+            },
+            "time": "2026-10-10T15:45:11+00:00"
+        },
+        {
+            "name": "eiriksm/lux-rx",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/lux-rx.git",
+                "reference": "9ec0f963f7a093ffcbdcc8d4d0af6e887b54a4c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/lux-rx/zipball/9ec0f963f7a093ffcbdcc8d4d0af6e887b54a4c0",
+                "reference": "9ec0f963f7a093ffcbdcc8d4d0af6e887b54a4c0",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "6-bit optical text receiver and encoder in C",
+            "support": {
+                "source": "https://github.com/eiriksm/lux-rx/tree/main",
+                "issues": "https://github.com/eiriksm/lux-rx/issues"
+            },
+            "time": "2026-10-10T14:10:56+00:00"
+        },
+        {
+            "name": "eiriksm/unit-counter-face",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/unit-counter-face.git",
+                "reference": "f4f024acab467c9e1e5afdd608e52717dfe9865b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/unit-counter-face/zipball/f4f024acab467c9e1e5afdd608e52717dfe9865b",
+                "reference": "f4f024acab467c9e1e5afdd608e52717dfe9865b",
+                "shasum": ""
+            },
+            "require": {
+                "eiriksm/bac.c": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "Second Movement watch face that counts alcohol units and estimates blood alcohol content",
+            "support": {
+                "source": "https://github.com/eiriksm/unit-counter-face/tree/main",
+                "issues": "https://github.com/eiriksm/unit-counter-face/issues"
+            },
+            "time": "2026-10-10T14:56:50+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "eiriksm/bac.c": 20
+        "eiriksm/bac.c": 20,
+        "eiriksm/lux-rx": 20,
+        "eiriksm/lux-demo-face": 20,
+        "eiriksm/unit-counter-face": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
