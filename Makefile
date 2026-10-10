@@ -227,6 +227,7 @@ SRCS += \
 endif
 
 include watch-faces.mk
+include composer.mk
 
 SRCS += \
   ./movement_optical.c \

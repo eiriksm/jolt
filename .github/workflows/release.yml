@@ -24,8 +24,23 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "version_underscore=$VERSION_UNDERSCORE" >> $GITHUB_OUTPUT
 
+  # The build containers have no PHP, so install the composer dependencies
+  # once here and hand vendor/ to the build jobs as an artifact.
+  composer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install composer dependencies
+        run: composer install --no-interaction --no-progress
+      - name: Upload vendor directory
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendor
+          path: vendor/
+
   build:
-    needs: meta
+    needs: [meta, composer]
     container:
       image: ghcr.io/armmbed/mbed-os-env:latest
 
@@ -69,6 +84,12 @@ jobs:
 
       - name: Ensure workspace directory is safe
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Download vendor directory
+        uses: actions/download-artifact@v5
+        with:
+          name: vendor
+          path: vendor/
 
       - name: Clean before build
         run: make clean
