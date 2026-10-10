@@ -80,6 +80,10 @@ jobs:
 
   build-simulator:
     needs: composer
+    permissions:
+      contents: write
+      pull-requests: write
+      deployments: write
     container:
       image: emscripten/emsdk
     strategy:
