@@ -191,6 +191,25 @@ static void settings_increment(countdown_state_t *state) {
     return;
 }
 
+static void settings_decrement(countdown_state_t *state) {
+    switch(state->selection) {
+        case 0:
+            state->hours = (state->hours + 23) % 24;
+            break;
+        case 1:
+            state->minutes = (state->minutes + 59) % 60;
+            break;
+        case 2:
+            state->seconds = (state->seconds + 59) % 60;
+            break;
+        default:
+            // should never happen
+            break;
+    }
+    return;
+}
+
+
 void countdown_face_setup(uint8_t watch_face_index, void ** context_ptr) {
     (void) watch_face_index;
 
@@ -235,8 +254,16 @@ bool countdown_face_loop(movement_event_t event, void *context) {
             break;
         case EVENT_TICK:
             if (quick_ticks_running) {
+#if BUILD_TO_SHARE || !defined(FORCE_GSHOCK_LCD_TYPE)
                 if (HAL_GPIO_BTN_ALARM_read())
+#else
+                if (HAL_GPIO_BTN_LIGHT_read())
+#endif
                     settings_increment(state);
+#ifdef FORCE_GSHOCK_LCD_TYPE
+                else if (HAL_GPIO_BTN_START_read())
+                    settings_decrement(state);
+#endif
                 else
                     abort_quick_ticks(state);
             }
@@ -272,6 +299,7 @@ bool countdown_face_loop(movement_event_t event, void *context) {
                     button_beep();
                     break;
                 case cd_setting:
+#if BUILD_TO_SHARE || !defined(FORCE_GSHOCK_LCD_TYPE)
                     state->selection++;
                     if(state->selection >= CD_SELECTIONS) {
                         state->selection = 0;
@@ -280,6 +308,9 @@ bool countdown_face_loop(movement_event_t event, void *context) {
                         movement_request_tick_frequency(1);
                         button_beep();
                     }
+#else
+                    settings_increment(state);
+#endif
                     break;
             }
             draw(state, event.subsecond);
@@ -301,7 +332,18 @@ bool countdown_face_loop(movement_event_t event, void *context) {
                     }
                     break;
                 case cd_setting:
+#if BUILD_TO_SHARE || !defined(FORCE_GSHOCK_LCD_TYPE)
                     settings_increment(state);
+#else
+                    state->selection++;
+                    if(state->selection >= CD_SELECTIONS) {
+                        state->selection = 0;
+                        state->mode = cd_reset;
+                        store_countdown(state);
+                        movement_request_tick_frequency(1);
+                        button_beep();
+                    }
+#endif
                     break;
             }
             draw(state, event.subsecond);
@@ -316,9 +358,23 @@ bool countdown_face_loop(movement_event_t event, void *context) {
                     button_beep();
                     break;
                 case cd_setting:
+#if BUILD_TO_SHARE || !defined(FORCE_GSHOCK_LCD_TYPE)
                     // long press in settings mode starts quick ticks for adjusting the time
                     quick_ticks_running = true;
                     movement_request_tick_frequency(8);
+#else
+                    switch (state->selection) {
+                        case 0:
+                            state->hours = 0;
+                            // intentional fallthrough
+                        case 1:
+                            state->minutes = 0;
+                            // intentional fallthrough
+                        case 2:
+                            state->seconds = 0;
+                            break;
+                    }
+#endif
                     break;
                 case cd_running:
                 case cd_paused:
@@ -328,6 +384,7 @@ bool countdown_face_loop(movement_event_t event, void *context) {
             break;
         case EVENT_LIGHT_LONG_PRESS:
             if (state->mode == cd_setting) {
+#if BUILD_TO_SHARE || !defined(FORCE_GSHOCK_LCD_TYPE)
                 switch (state->selection) {
                     case 0:
                         state->hours = 0;
@@ -339,6 +396,11 @@ bool countdown_face_loop(movement_event_t event, void *context) {
                         state->seconds = 0;
                         break;
                 }
+#else
+                // long press in settings mode starts quick ticks for adjusting the time
+                quick_ticks_running = true;  
+                movement_request_tick_frequency(8);
+#endif
             } else {
                 // Toggle auto-repeat
                 button_beep();
@@ -352,6 +414,20 @@ bool countdown_face_loop(movement_event_t event, void *context) {
             break;
         case EVENT_ALARM_LONG_UP:
             abort_quick_ticks(state);
+            break;
+        case EVENT_START_BUTTON_UP:
+            if (state->mode == cd_setting) {
+                settings_decrement(state);
+            } else {
+                movement_move_to_previous_face();
+            }
+            break;
+        case EVENT_START_LONG_PRESS:
+            if (state->mode == cd_setting) {
+                // long press in settings mode starts quick ticks for adjusting the time
+                quick_ticks_running = true;
+                movement_request_tick_frequency(8);
+            } 
             break;
         case EVENT_BACKGROUND_TASK:
             times_up(state);
