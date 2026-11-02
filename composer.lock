@@ -1,0 +1,161 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e265e778062a8376bf638f6c8d59d300",
+    "packages": [
+        {
+            "name": "eiriksm/bac.c",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/bac.c.git",
+                "reference": "248dddcf6943061f91ebdf3a292646a8bee34c04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/bac.c/zipball/248dddcf6943061f91ebdf3a292646a8bee34c04",
+                "reference": "248dddcf6943061f91ebdf3a292646a8bee34c04",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "Blood Alcohol Content API in C",
+            "support": {
+                "source": "https://github.com/eiriksm/bac.c/tree/main",
+                "issues": "https://github.com/eiriksm/bac.c/issues"
+            },
+            "time": "2026-10-07T19:14:29+00:00"
+        },
+        {
+            "name": "eiriksm/fesk-demo-face",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/fesk-demo-face.git",
+                "reference": "ff4faa1954e1344453fbe76bf31224d62aaa2c4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/fesk-demo-face/zipball/ff4faa1954e1344453fbe76bf31224d62aaa2c4d",
+                "reference": "ff4faa1954e1344453fbe76bf31224d62aaa2c4d",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "Second Movement watch face that sends text as sound with FESK",
+            "support": {
+                "source": "https://github.com/eiriksm/fesk-demo-face/tree/main",
+                "issues": "https://github.com/eiriksm/fesk-demo-face/issues"
+            },
+            "time": "2026-10-10T17:55:15+00:00"
+        },
+        {
+            "name": "eiriksm/lux-demo-face",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/lux-demo-face.git",
+                "reference": "d822e8dbc5674ce52f7920e1e5b5427fb96b1e71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/lux-demo-face/zipball/d822e8dbc5674ce52f7920e1e5b5427fb96b1e71",
+                "reference": "d822e8dbc5674ce52f7920e1e5b5427fb96b1e71",
+                "shasum": ""
+            },
+            "require": {
+                "eiriksm/lux-rx": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "Second Movement watch face that receives text over light with lux_rx",
+            "support": {
+                "source": "https://github.com/eiriksm/lux-demo-face/tree/main",
+                "issues": "https://github.com/eiriksm/lux-demo-face/issues"
+            },
+            "time": "2026-10-10T20:20:49+00:00"
+        },
+        {
+            "name": "eiriksm/lux-rx",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/lux-rx.git",
+                "reference": "ccb80b469e18087f5b12da371bfb3dd15067d107"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/lux-rx/zipball/ccb80b469e18087f5b12da371bfb3dd15067d107",
+                "reference": "ccb80b469e18087f5b12da371bfb3dd15067d107",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "6-bit optical text receiver and encoder in C",
+            "support": {
+                "source": "https://github.com/eiriksm/lux-rx/tree/main",
+                "issues": "https://github.com/eiriksm/lux-rx/issues"
+            },
+            "time": "2026-10-10T20:05:15+00:00"
+        },
+        {
+            "name": "eiriksm/unit-counter-face",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eiriksm/unit-counter-face.git",
+                "reference": "f4f024acab467c9e1e5afdd608e52717dfe9865b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eiriksm/unit-counter-face/zipball/f4f024acab467c9e1e5afdd608e52717dfe9865b",
+                "reference": "f4f024acab467c9e1e5afdd608e52717dfe9865b",
+                "shasum": ""
+            },
+            "require": {
+                "eiriksm/bac.c": "dev-main"
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "description": "Second Movement watch face that counts alcohol units and estimates blood alcohol content",
+            "support": {
+                "source": "https://github.com/eiriksm/unit-counter-face/tree/main",
+                "issues": "https://github.com/eiriksm/unit-counter-face/issues"
+            },
+            "time": "2026-10-10T14:56:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "eiriksm/bac.c": 20,
+        "eiriksm/fesk-demo-face": 20,
+        "eiriksm/lux-demo-face": 20,
+        "eiriksm/lux-rx": 20,
+        "eiriksm/unit-counter-face": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

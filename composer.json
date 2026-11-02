@@ -1,0 +1,47 @@
+{
+    "name": "eiriksm/jolt",
+    "description": "C dependencies for jolt, fetched with composer.",
+    "type": "project",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/eiriksm/bac.c"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/eiriksm/lux-rx"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/eiriksm/lux-demo-face"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/eiriksm/unit-counter-face"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/eiriksm/fesk-demo-face"
+        }
+    ],
+    "require": {
+        "eiriksm/bac.c": "dev-main",
+        "eiriksm/lux-rx": "dev-main",
+        "eiriksm/lux-demo-face": "dev-main",
+        "eiriksm/unit-counter-face": "dev-main",
+        "eiriksm/fesk-demo-face": "dev-main"
+    },
+    "scripts": {
+        "post-install-cmd": "@php scripts/composer-c-deps.php",
+        "post-update-cmd": "@php scripts/composer-c-deps.php"
+    },
+    "config": {
+        "preferred-install": "source"
+    },
+    "extra": {
+        "violinist": {
+            "default_branch": "jolt-eirik"
+        }
+    }
+}
