@@ -1,8 +1,3 @@
-ifeq ($(SHARE),false)
-    $(info INCLUDING pet_face.c)
-    SRCS += ./watch-faces/complication/pet_face.c
-endif
-
 SRCS += \
   ./watch-faces/clock/clock_face.c \
   ./watch-faces/clock/beats_face.c \
@@ -71,4 +66,5 @@ SRCS += \
   ./watch-faces/complication/tide_face.c \
   ./watch-faces/complication/cyclic_countdown_face.c \
   ./watch-faces/clock/world_clock2_face.c \
+  ./watch-faces/complication/virtual_pet_face.c \
 # New watch faces go above this line.
